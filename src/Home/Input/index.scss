@@ -8,6 +8,15 @@ button{
     color: red;
 
 }
+.delete-btn{
+display: inline;
+border: 2px solid black;
+margin: 0 !important;
+padding: 0 !important;
+font-size: 10px;
+transform: translateY(-5px);
+
+}
 #form{
     margin-top: 100px;
     transform: translateX(25%);
@@ -20,8 +29,8 @@ button{
     color: red;
     
  }
- .add{
-    color: blue;
+ .add{    
+    margin: 10px 0;
     
  }
 }

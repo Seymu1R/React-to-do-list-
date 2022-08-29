@@ -2,7 +2,6 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import List from '../List/Index';
 import './index.scss';
-const emploList = [];
 function Input({ setName, setSurname, setSalary, inputName, inputSname, inputSalary }) {
 
     const [todos, setTodos] = React.useState([])
@@ -10,16 +9,18 @@ function Input({ setName, setSurname, setSalary, inputName, inputSname, inputSal
     const getName = React.useCallback((e) => { setName(e.target.value) }, [])
     const getSName = React.useCallback((e) => { setSurname(e.target.value) }, [])
     const getSalary = React.useCallback((e) => { setSalary(e.target.value) }, [])
+
+   
+
     //addToList method
     const addTolist = (e) => {
-
-
         e.preventDefault();
         const newTodo = todos.push({
             id: Math.floor(Math.random() * 1000),
             name: inputName,
             surname: inputSname,
-            salary: inputSalary
+            salary: inputSalary,
+            delete:<button    className={'delete-btn'} >Delete</button>
 
         })
         setTodos([...todos].concat(newTodo))
@@ -28,6 +29,7 @@ function Input({ setName, setSurname, setSalary, inputName, inputSname, inputSal
         // setSurname('')
         // setSalary('')
     }
+    
 
 
     return (
@@ -38,7 +40,7 @@ function Input({ setName, setSurname, setSalary, inputName, inputSname, inputSal
                         <input onChange={getName} type={"text"} placeholder={"Please, Enter employee Name"} ></input>
                         <input onChange={getSName} type={"text"} placeholder={"Please, Enter employee Surname"} ></input>
                         <input onChange={getSalary} type={"number"} placeholder={"Please, Enter employee Salary"} ></input>
-                        <button>Add List</button>
+                        <button  >Add List</button>
 
                     </form>
                     <div className='form-list' >
@@ -46,8 +48,13 @@ function Input({ setName, setSurname, setSalary, inputName, inputSname, inputSal
                             <Col md={3} ><div className='id' >ID</div></Col>
                             <Col md={3} ><div className='name' >NAME</div></Col>
                             <Col md={3} ><div className='surname' >SURNAME</div></Col>
-                            <Col md={3} ><div className='salary' >SALARY</div></Col>
-                            <List id={todos.map(eid => <div className='add' >{eid.id}</div>)} inputName={todos.map(ename => <div className='add' >{ename.name}</div>)} inputSname={todos.map(esname => <div className='add' >{esname.surname}</div>)} inputSalary={todos.map(esalary => <div className='add' >{esalary.salary}</div>)} />
+                            <Col md={2} ><div className='salary' >SALARY</div></Col>
+                            <List 
+                            id={todos.map(eid => <div className='add' >{eid.id}</div>)} 
+                            inputName={todos.map(ename => <div className='add' >{ename.name}</div>)} 
+                            inputSname={todos.map(esname => <div className='add' >{esname.surname}</div>)}
+                            inputSalary={todos.map(esalary => <div className='add' >{esalary.salary }</div>)}
+                            inputDelete={todos.map(dbtn => <div className='add' >{dbtn.delete }</div>)} />
                         </Row>
                     </div>
                 </Col>
