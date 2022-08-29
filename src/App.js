@@ -10,8 +10,7 @@ function App() {
   return (
     <div className="App">
       <React.Fragment>
-        <Input setName={setName} setSurname={setSurname} setSalary={setSalary} />
-        <List inputName={inputName}  />
+        <Input setName={setName} setSurname={setSurname} setSalary={setSalary} inputName={inputName} inputSname={inputSname} inputSalary={inputSalary}/>        
       </React.Fragment>
     </div>
   );
